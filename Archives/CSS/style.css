@@ -1,0 +1,45 @@
+body {
+    background-image: url(https://wallpapersite.com/images/pages/pic_w/7172.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#Produits{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.display-article {
+    display: flex;
+    flex-direction: column;  
+    justify-content: center;
+    border: black;
+    border-style: solid;
+    border-width: 10px;
+    margin: 15px;
+    background-image: url(https://wallpapertag.com/wallpaper/full/c/3/f/154621-cool-cosmos-wallpaper-1920x1200-for-macbook.jpg);
+
+}
+
+.display-article img {
+    display: flex;
+    height: 250px;
+    width: 400px;
+    padding: 10px;
+    margin: auto;
+    border-image: auto;
+}
+
+.display-article p {
+    display: flex;
+    justify-content: space-around;
+    font-size: large;
+    color: blanchedalmond;
+}
+
+.display-article button {
+    margin: auto;
+    color: black;
+    font-size: medium;
+}
