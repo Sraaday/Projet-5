@@ -43,3 +43,8 @@ body {
     color: black;
     font-size: medium;
 }
+
+#Lentilles {
+    display: flex;
+    margin: auto;
+}

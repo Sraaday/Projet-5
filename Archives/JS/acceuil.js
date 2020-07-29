@@ -30,3 +30,4 @@ function renderProduct(productName, productId, productImg, productPrice, product
 }
 
 displayProducts();
+
