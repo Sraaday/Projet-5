@@ -24,6 +24,8 @@ const indexId = urlId.search('=');
 const productUrlId = urlId.slice (indexId + 1, urlId.length);
 console.log(productUrlId);
 
+const id = (new URL(document.location)).searchParams.get('id');
+
 // Récupère une caméra
 const getOneCam = async (url, id) => {
     const response = await fetch(`${url}/${id}`);
@@ -69,8 +71,11 @@ function AddCart () {
     console.log(cart)
     cart.push(newItem);
     localStorage.setItem('cart', JSON.stringify(cart));
+    displayNbProduct();
     
 }
+
+
 
 
 
