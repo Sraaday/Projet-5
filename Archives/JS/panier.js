@@ -1,3 +1,5 @@
+
+
 // API
 const url = "http://localhost:3000/api/cameras";
 
@@ -31,14 +33,31 @@ const getItems = async (url) => {
 const displaycart = async () => {
     const cart = await getItems(url);
     let storedItems = JSON.parse(localStorage.getItem('cart'));
+    console.log(storedItems)
+    let totalPrice = 0;
+    let name = [];
+    let _id = [];
+    let imageUrl = [];
+    let price = [];
+    let lense = [];
+    
+    
     cart.forEach((cartItem) => {
-        storedItems.forEach((storedItem) => {
-            if (cartItem._id == storedItem.id) {
-                console.log( renderCart(cartItem.name, cartItem._id, cartItem.imageUrl, cartItem.price, storedItem.lense)) ;
+        storedItems.forEach((storedItems) => {
+            if (cartItem._id == storedItems.id) {
+                name.push(cartItem.name);
+                _id.push(cartItem._id);
+                imageUrl.push(cartItem.imageUrl);
+                price.push(cartItem.price);
+                lense.push(storedItems.lense);
+                console.log(storedItems.lense)
+                
+                totalPrice += cartItem.price;
             }
             
         });
     });
+    console.log( renderCart(name, _id, imageUrl, price, lense, totalPrice)) ;
 };
 
 displaycart();
@@ -46,17 +65,38 @@ displaycart();
 
 
 // Paramètres d'afichage d'un produit
-function renderCart(cartName, cartId, cartImg, cartPrice, cartLense) {
-    const products = document.querySelector("#Produits"); 
-    const article = document.createElement("article");
-    article.classList.add('display-article');
-    article.innerHTML = `<img alt="${cartName}" src="${cartImg}">
-    <button class="product-link" type="button"><a href="produits.html?id=${cartId}">Consulter la fiche du produit</a></button>
-    <p class="product-title">${cartName}</p>
-    <p class="prdoduct-lense">${cartLense}</p>
-    <p class="price">${cartPrice + " €"}</p>
+function renderCart(cartName, cartId, cartImg, cartPrice, cartLense, totalPrice) {
+    
+    const products = document.querySelector("#Produits");
+    const panier = document.createElement("div");
+    panier.classList.add('row');
+    panier.classList.add('render-cart');
+    
+    panier.innerHTML = `
+    <div class ="col-12 .container">
     `;
-    products.appendChild(article);
+    
+    for(let i = 0; i < cartName.length; i++) {
+        panier.innerHTML += `
+        <div class ="col-9 col-lg-9 col-sm-9 col-xs-9 col-md-9">
+        <div class ="col-2 col-lg-2 col-sm-2 col-xs-2 col-md-2"> <img class="cart-img" src="${cartImg[i]}"> </div>
+        <div class ="col-4 col-lg-4 col-sm-4 col-xs-4 col-md-4"> ${cartName[i]} </div>
+        <div class ="col-2 col-lg-2 col-sm-2 col-xs-2 col-md-2"> ${cartLense[i]} </div>
+        <div class ="col-1 col-lg-1 col-sm-1 col-xs-1 col-md-1"> ${cartPrice[i]} </div>
+        </div> 
+        `
+    }
+    panier.innerHTML += `
+    
+    <div class ="col-3"> prix total </div>
+    
+    </div>
+    
+    `
+    
+    
+    products.appendChild(panier);
+    return cartLense;
 }
 
 
