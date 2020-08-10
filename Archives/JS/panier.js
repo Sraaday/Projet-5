@@ -78,11 +78,11 @@ function renderCart(cartName, cartId, cartImg, cartPrice, cartLense, totalPrice)
     
     for(let i = 0; i < cartName.length; i++) {
         panier.innerHTML += `
-        <div class ="col-9 col-lg-9 col-sm-9 col-xs-9 col-md-9">
-        <div class ="col-2 col-lg-2 col-sm-2 col-xs-2 col-md-2"> <img class="cart-img" src="${cartImg[i]}"> </div>
-        <div class ="col-4 col-lg-4 col-sm-4 col-xs-4 col-md-4"> ${cartName[i]} </div>
-        <div class ="col-2 col-lg-2 col-sm-2 col-xs-2 col-md-2"> ${cartLense[i]} </div>
-        <div class ="col-1 col-lg-1 col-sm-1 col-xs-1 col-md-1"> ${cartPrice[i]} </div>
+        <div class ="col-9 col-lg-9 col-sm-9 col-xs-9 col-md-9 case">
+        <div class ="col-2 col-lg-2 col-sm-2 col-xs-2 col-md-2 case"> <img class="cart-img" src="${cartImg[i]}"> </div>
+        <div class ="col-4 col-lg-4 col-sm-4 col-xs-4 col-md-4 case"> ${cartName[i]} </div>
+        <div class ="col-2 col-lg-2 col-sm-2 col-xs-2 col-md-2 case"> ${cartLense[i]} </div>
+        <div class ="col-1 col-lg-1 col-sm-1 col-xs-1 col-md-1 case"> ${cartPrice[i]} </div>
         </div> 
         `
     }

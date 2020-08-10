@@ -56,3 +56,10 @@ body {
     height: 50px;
 }
 
+.case
+{
+    display: flex;
+    justify-content: space-around;
+    /* TOUT DOUX BLYAT : FINIR MISE EN PAGE ARTICLE PANIER */
+}
+
