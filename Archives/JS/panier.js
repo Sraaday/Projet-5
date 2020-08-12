@@ -64,7 +64,7 @@ displaycart();
 
 
 
-// Paramètres d'afichage d'un produit
+// Paramètres d'afichage du panier
 function renderCart(cartName, cartId, cartImg, cartPrice, cartLense, totalPrice) {
     
     const products = document.querySelector("#Produits");
@@ -75,10 +75,10 @@ function renderCart(cartName, cartId, cartImg, cartPrice, cartLense, totalPrice)
     panier.innerHTML = `
     <div class ="col-12 .container">
         <div class ="col-9 col-lg-9 col-sm-9 col-xs-9 col-md-9 case">
-            <div class ="col-2 col-lg-2 col-sm-2 col-xs-2 col-md-2 case">   </div>
-            <div class ="col-4 col-lg-4 col-sm-4 col-xs-4 col-md-4 case"> Modèle </div>
-            <div class ="col-2 col-lg-2 col-sm-2 col-xs-2 col-md-2 case"> Lentille </div>
-            <div class ="col-1 col-lg-1 col-sm-1 col-xs-1 col-md-1 case"> Prix </div>
+            <div class ="col-2 col-lg-2 col-sm-2 col-xs-2 col-md-2 case cell"> Illustration   </div>
+            <div class ="col-4 col-lg-4 col-sm-4 col-xs-4 col-md-4 case cell"> Modèle </div>
+            <div class ="col-2 col-lg-2 col-sm-2 col-xs-2 col-md-2 case cell"> Lentille </div>
+            <div class ="col-1 col-lg-1 col-sm-1 col-xs-1 col-md-1 case cell"> Prix </div>
         </div>
     
     `;
@@ -86,17 +86,17 @@ function renderCart(cartName, cartId, cartImg, cartPrice, cartLense, totalPrice)
     for(let i = 0; i < cartName.length; i++) {
         panier.innerHTML += `
         <div class ="col-9 col-lg-9 col-sm-9 col-xs-9 col-md-9 case">
-            <div class ="col-2 col-lg-2 col-sm-2 col-xs-2 col-md-2 case"> <img class="cart-img" src="${cartImg[i]}"> </div>
-            <div class ="col-4 col-lg-4 col-sm-4 col-xs-4 col-md-4 case"> ${cartName[i]} </div>
-            <div class ="col-2 col-lg-2 col-sm-2 col-xs-2 col-md-2 case"> ${cartLense[i]} </div>
-            <div class ="col-1 col-lg-1 col-sm-1 col-xs-1 col-md-1 case"> ${cartPrice[i]} </div>
+            <div class ="col-2 col-lg-2 col-sm-2 col-xs-2 col-md-2 case cell"> <img class="cart-img" src="${cartImg[i]}"> </div>
+            <div class ="col-4 col-lg-4 col-sm-4 col-xs-4 col-md-4 case cell"> ${cartName[i]} </div>
+            <div class ="col-2 col-lg-2 col-sm-2 col-xs-2 col-md-2 case cell"> ${cartLense[i]} </div>
+            <div class ="col-1 col-lg-1 col-sm-1 col-xs-1 col-md-1 case cell"> ${cartPrice[i]} </div>
         </div> 
         `
     }
     panier.innerHTML += `
     <div class ="row col-3">
-        <div class ="col-3 case"> Prix Total </div>
-        <div class ="col-3 case"> ${totalPrice} </div>
+        <div class ="col-3 case cell"> Prix Total </div>
+        <div class ="col-3 case cell"> ${totalPrice} </div>
     
         </div>
     </div>
@@ -113,7 +113,7 @@ function renderCart(cartName, cartId, cartImg, cartPrice, cartLense, totalPrice)
     
 
 
-// Formulaire 
+// Formulaire //
 
 function getArrayId () {
     let storedItems = JSON.parse(localStorage.getItem('cart'));
@@ -128,7 +128,7 @@ function getArrayId () {
     return arrayId;
     
 }
-
+// vérification reggex du formulaire
 function isValid(value) {
     return /[A-Za-z]/.test(value);
 }

@@ -61,10 +61,59 @@ body {
     display: flex;
     justify-content: center;
     margin: auto;
-    color: blanchedalmond;
+
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: medium;
     /* TOUT DOUX BLYAT : FINIR MISE EN PAGE ARTICLE PANIER */
 }
 
+.cell
+{
+    border: blanchedalmond;
+    border-width: 1px;
+    border-style: solid;
+    background-color: black;
+    color: blanchedalmond;
+}
+
+#formulaire
+{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    justify-self: center;
+
+}
+
+#form
+{
+    padding: 10px;
+    border: blanchedalmond;
+    border-width: 15px;
+    border-style: solid;
+    background-color: black;
+    color: blanchedalmond;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#form p
+{
+    display: flex;
+    margin: auto;
+    padding: 5px;
+    vertical-align: auto;
+    justify-self: center;
+}
+
+#form h1
+{
+    font-weight: bold;
+}
+
+input
+{
+    color: #000;
+}
