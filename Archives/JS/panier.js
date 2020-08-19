@@ -94,7 +94,18 @@ function renderCart(cart) {
     getArrayId();
     products.appendChild(panier);
 
-
+    const infosPrice = {
+        prixTotal : totalPrice
+    }
+    let FinalPrice = JSON.parse(sessionStorage.getItem('FinalPrice'));
+    
+    if (FinalPrice===null) {
+        FinalPrice = [] 
+        
+    }
+    FinalPrice.push(infosPrice);
+    localStorage.setItem('FinalPrice', JSON.stringify(FinalPrice));
+    console.log(FinalPrice)
 }
 
     
@@ -150,6 +161,23 @@ form.addEventListener("submit", async  (e) => {
                 const data = await response.json();
                 console.log(data)
 
+                const OrderId = data.orderId ;
+                const infosPrice = {
+                    id : OrderId, 
+                    name : form.elements.firstName.value
+                }
+                let customerInfos = JSON.parse(sessionStorage.getItem('customerInfos'));
+                
+                if (customerInfos===null) {
+                    customerInfos = [] 
+                    
+                }
+                customerInfos.push(infosPrice);
+                localStorage.setItem('customerInfos', JSON.stringify(customerInfos));
+                console.log(customerInfos)
+                
+                const customUrl = `confirmation.html?id=${OrderId}`;
+                document.location.href = customUrl;
 
             
 
