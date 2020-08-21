@@ -147,22 +147,30 @@ form.addEventListener("submit", async  (e) => {
     if (isValid(firstName))
         if (isValid(lastName))
             if (isValid(City)) {
-
-                var contact = { "firstName" : firstName, "lastName" : lastName, "address" : address, "city" : City, "email" : Email };
-                var req = {"contact" : contact, "products" : Ids};
-                let options = {
-                    method:"POST",
-                    body: JSON.stringify(req),
-                    headers:{
-                        "Content-Type" : "application/json"
-                    }
-                };
-
+                
+                    var contact = { "firstName" : firstName, "lastName" : lastName, "address" : address, "city" : City, "email" : Email };
+                    var req = {"contact" : contact, "products" : Ids};
+                    let options = {
+                        method:"POST",
+                        body: JSON.stringify(req),
+                        headers:{
+                            "Content-Type" : "application/json"
+                        }
+                    };
+                
+                
+                try {
                 const response = await fetch("http://localhost:3000/api/cameras/order",options);
                 const data = await response.json();
                 console.log(data)
+                
 
-                // envoi des infos nécessaires en session storage
+                
+                
+
+
+
+                // envoi des infos en session storage
                 const OrderId = data.orderId ;
                 const infosPrice = {
                     id : OrderId, 
@@ -177,11 +185,19 @@ form.addEventListener("submit", async  (e) => {
                 customerInfos.push(infosPrice);
                 localStorage.setItem('customerInfos', JSON.stringify(customerInfos));
                 console.log(customerInfos)
-
+            
+                
                 //redirection vers confirmation.html
                 
                 const customUrl = `confirmation.html?id=${OrderId}`;
+            
+                
                 document.location.href = customUrl;
+            }
+
+                catch (error) {
+                    alert("Error: " + error.description );
+                }
 
             
 

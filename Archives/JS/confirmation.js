@@ -1,3 +1,4 @@
+try{
     function renderConfirmation() {
            // Recupération des infos de commande en local storage
            let storedInfos = JSON.parse(localStorage.getItem('customerInfos'));
@@ -17,5 +18,9 @@
 
         target.appendChild(confirmation);
     };
+}
+catch (error) {
+    alert("Impossible de récupérer vos informations de commande !");
+}
 
     renderConfirmation();
