@@ -38,6 +38,13 @@ body {
     color: blanchedalmond;
 }
 
+.display-article h1
+{
+    display: flex;
+    justify-content: space-around;
+    color: blanchedalmond;
+}
+
 .display-article button {
     margin: auto;
     color: black;

@@ -94,6 +94,7 @@ function renderCart(cart) {
     getArrayId();
     products.appendChild(panier);
 
+    //envoi du prix total en session Storage
     const infosPrice = {
         prixTotal : totalPrice
     }
@@ -161,6 +162,7 @@ form.addEventListener("submit", async  (e) => {
                 const data = await response.json();
                 console.log(data)
 
+                // envoi des infos nécessaires en session storage
                 const OrderId = data.orderId ;
                 const infosPrice = {
                     id : OrderId, 
@@ -175,6 +177,8 @@ form.addEventListener("submit", async  (e) => {
                 customerInfos.push(infosPrice);
                 localStorage.setItem('customerInfos', JSON.stringify(customerInfos));
                 console.log(customerInfos)
+
+                //redirection vers confirmation.html
                 
                 const customUrl = `confirmation.html?id=${OrderId}`;
                 document.location.href = customUrl;
