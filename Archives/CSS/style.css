@@ -19,7 +19,7 @@ body {
     border-width: 10px;
     margin: 15px;
     background-image: url(https://wallpapertag.com/wallpaper/full/c/3/f/154621-cool-cosmos-wallpaper-1920x1200-for-macbook.jpg);
-
+    
 }
 
 .display-article img {
@@ -68,7 +68,7 @@ body {
     display: flex;
     justify-content: center;
     margin: auto;
-
+    
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: medium;
@@ -90,7 +90,7 @@ body {
     margin: auto;
     justify-content: center;
     justify-self: center;
-
+    
 }
 
 #form
@@ -123,4 +123,39 @@ body {
 input
 {
     color: #000;
+}
+/* Media queries mode téléphone */
+@media screen and (max-width: 576px) {
+    
+    .cart-img
+    {
+        margin: auto;
+        width: 37px;
+        height: 25px;
+    }
+    
+    .display-article img {
+        display: flex;
+        height: 125px;
+        width: 200px;
+        padding: 10px;
+        margin: auto;
+        border-image: auto;
+    }
+    
+    .display-article p {
+        display: flex;
+        justify-content: space-around;
+        font-size: small;
+        color: blanchedalmond;
+    }
+    
+    .case {
+        font-size: small;
+    }
+    
+    .description{
+        margin-left: 10px;
+    }
+    
 }
