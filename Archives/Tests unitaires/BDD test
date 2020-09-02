@@ -1,0 +1,67 @@
+Given customer using an ordering form.
+When the user input is valid.
+Then it send a post request to the server.
+And the user is redirected to the confirmation page.
+
+------------------------------------------------------
+
+Given a user is redirected to the confirmation page.
+When the customer info can't be retrieve.
+Then the error infos is log in the console.
+And the user receive an error message.
+
+------------------------------------------------------
+
+Given a user is redirected to the confirmation page.
+When the customer info is correctly retrieved.
+Then customer info is used to create a custom message which include : OrderId, Name, and the Total price of his purchase.
+And the user receive a custom message on the confirmation page.
+
+------------------------------------------------------
+
+Given a user adding an item in the cart.
+When the "add to cart" button is clicked.
+Then the item infos are stored in local storage.
+And the number of items in the cart is updated. 
+
+------------------------------------------------------
+
+Given a user modifying an id in a url.
+When the user try to load it.
+Then the user is redirected to an error page.
+And the user received an error message.
+
+------------------------------------------------------
+
+Given a user clicking on 'see the product' button.
+When the product id is invalid.
+Then the user is redirected to an error page.
+And the user received an error message.
+
+------------------------------------------------------
+
+Given a user clicking on 'cart' link.
+When the cart infos can't be retrieved.
+Then the user is redirected to an error page.
+And the user received an error message.
+
+------------------------------------------------------
+
+Given a user on the homepage.
+When the 'products id' can't be retrieve from the API.
+Then the user is redirected to an error page.
+And the user received an error message.
+
+------------------------------------------------------
+
+Given a user on the product page.
+When the user select a lense and add it to the cart.
+Then the choosed lense is stored in local storage.
+And the user's lense id displayed in the cart page.
+
+------------------------------------------------------
+
+Given a user on the cart page.
+When the user have item(s) in his cart.
+Then all items price are add up to 'total price'.
+And the total price is displayed in the cart page.
