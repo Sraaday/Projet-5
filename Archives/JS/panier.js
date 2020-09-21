@@ -98,15 +98,15 @@ function renderCart(cart) {
     const infosPrice = {
         prixTotal : totalPrice/100
     }
-    let FinalPrice = JSON.parse(sessionStorage.getItem('FinalPrice'));
+    let finalPrice = JSON.parse(sessionStorage.getItem('finalPrice'));
     
-    if (FinalPrice===null) {
-        FinalPrice = [] 
+    if (finalPrice===null) {
+        finalPrice = [] 
         
     }
-    FinalPrice.push(infosPrice);
-    localStorage.setItem('FinalPrice', JSON.stringify(FinalPrice));
-    console.log(FinalPrice)
+    finalPrice.push(infosPrice);
+    localStorage.setItem('finalPrice', JSON.stringify(finalPrice));
+    console.log(finalPrice)
 }
 
 

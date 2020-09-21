@@ -2,7 +2,7 @@
 const url = "http://localhost:3000/api/cameras";
 
 // Paramètres d'afichage d'un produit
-function renderProduct(productName, productId, productImg, productPrice, productDescription, lenses) {
+function renderProduct(productName, productImg, productPrice, productDescription, lenses) {
     const products = document.querySelector("#Produits"); 
     const article = document.createElement("article");
     article.classList.add('display-article');
