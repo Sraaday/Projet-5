@@ -36,7 +36,7 @@ const getOneCam = async (url, id) => {
 const displayProducts = async (id) => {
   const product = await getOneCam(url,id);
   console.log({type:typeof product, product})
-  renderProduct(product.name, product._id, product.imageUrl, product.price, product.description, product.lenses );
+  renderProduct(product.name, product.imageUrl, product.price, product.description, product.lenses );
   
 };
 
@@ -49,7 +49,7 @@ function createOptions (lenses) {
   lenses.forEach(lense => {
     Options += `<option value="${lense}">${lense}</option>`
     
-  })
+  });
   return Options;
 }
 
@@ -68,8 +68,9 @@ function AddCart () {
     cart = [] 
     
   }
-  console.log(cart)
+  
   cart.push(newItem);
+  console.log(cart)
   localStorage.setItem('cart', JSON.stringify(cart));
   displayNbProduct();
   

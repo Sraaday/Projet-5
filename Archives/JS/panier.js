@@ -34,16 +34,43 @@ const displaycart = async () => {
     let storedItems = JSON.parse(localStorage.getItem('cart'));
     console.log(storedItems)
     let cart = [];
-    for (const camera of cameras) {
-        const item = storedItems.find((idobj) => idobj.id === camera._id) ;
-        if (item) {
-            camera.lense = item.lense;
-            cart.push(camera);
+    let item;
+    let lenseId = [];
+    for(let i = 0; i < storedItems.length; i++)
+    {
+        
+        for(let j = 0; j < cameras.length; j++)
+        {
+            item = null;
+            
+            if(storedItems[i].id == cameras[j]._id)
+            {
+                for(let k = 0; k < cameras[j].lenses.length; k++)
+                {
+                    console.log(storedItems[i].lense)
+                    if (storedItems[i].lense == cameras[j].lenses[k])
+                    {
+                        lenseId.push(cameras[j].lenses[k]);
+                    }
+                }
+                item = cameras[j];
+            }
+            
+            
+            if(item)
+            {
+                
+                item.lense = storedItems[i].lense;
+                console.log(item)
+                cart.push(item);
+                
+                
+            }
         }
     }
     
     
-    renderCart(cart);
+    renderCart(cart, lenseId);
 };
 
 displaycart();
@@ -51,7 +78,7 @@ displaycart();
 
 
 // Paramètres d'afichage du panier
-function renderCart(cart) {
+function renderCart(cart, lense) {
     
     const products = document.querySelector("#Produits");
     const panier = document.createElement("div");
@@ -75,11 +102,12 @@ function renderCart(cart) {
         <div class ="col-9 col-lg-9 col-sm-9 col-xs-9 col-md-9 case">
         <div class ="col-2 col-lg-2 col-sm-2 col-xs-2 col-md-2 case cell"> <img class="cart-img" src="${cart[i].imageUrl}"> </div>
         <div class ="col-4 col-lg-4 col-sm-4 col-xs-4 col-md-4 case cell"> ${cart[i].name} </div>
-        <div class ="col-2 col-lg-2 col-sm-2 col-xs-2 col-md-2 case cell"> ${cart[i].lense} </div>
+        <div class ="col-2 col-lg-2 col-sm-2 col-xs-2 col-md-2 case cell"> ${lense[i]} </div>
         <div class ="col-1 col-lg-1 col-sm-1 col-xs-1 col-md-1 case cell"> ${cart[i].price/100} </div>
         </div> 
         `
         totalPrice += cart[i].price
+        
     }
     panier.innerHTML += `
     <div class ="row col-3">
@@ -91,7 +119,7 @@ function renderCart(cart) {
     
     `
     
-    getArrayId();
+    infosCart();
     products.appendChild(panier);
     
     //envoi du prix total en session Storage

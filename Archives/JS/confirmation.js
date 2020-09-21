@@ -1,10 +1,7 @@
-try{
     function renderConfirmation() {
         // Recupération des infos de commande en local storage
         let storedInfos = JSON.parse(localStorage.getItem('customerInfos'));
-        let storedPrice = JSON.parse(localStorage.getItem('FinalPrice'));
-        console.log(storedInfos)
-        console.log(storedPrice)
+        let storedPrice = JSON.parse(localStorage.getItem('finalPrice'));
         const target = document.querySelector("#Confirmation");
         const confirmation = document.createElement("article");
         confirmation.classList.add('display-article');
@@ -18,9 +15,15 @@ try{
         
         target.appendChild(confirmation);
     }
+
+
+    
+
+try{
+    renderConfirmation();
 }
-catch (error) {
+catch{
     alert("Impossible de récupérer vos informations de commande !");
 }
-
-renderConfirmation();
+localStorage.clear('cart');
+displayNbProduct();
