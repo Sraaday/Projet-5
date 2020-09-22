@@ -67,13 +67,20 @@ body {
 {
     display: flex;
     justify-content: center;
-    margin: auto;
-    
+    margin: auto;   
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: medium;
-    /* TOUT DOUX BLYAT : FINIR MISE EN PAGE ARTICLE PANIER */
+    
 }
+
+.description
+{
+    position: relative;
+    margin-right: 1em;
+}
+
+
 
 .cell
 {

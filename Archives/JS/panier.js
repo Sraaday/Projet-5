@@ -32,7 +32,6 @@ const getItems = async (url) => {
 const displaycart = async () => {
     const cameras = await getItems(url);
     let storedItems = JSON.parse(localStorage.getItem('cart'));
-    console.log(storedItems)
     let cart = [];
     let item;
     let lenseId = [];
@@ -47,7 +46,7 @@ const displaycart = async () => {
             {
                 for(let k = 0; k < cameras[j].lenses.length; k++)
                 {
-                    console.log(storedItems[i].lense)
+                    
                     if (storedItems[i].lense == cameras[j].lenses[k])
                     {
                         lenseId.push(cameras[j].lenses[k]);
@@ -61,7 +60,6 @@ const displaycart = async () => {
             {
                 
                 item.lense = storedItems[i].lense;
-                console.log(item)
                 cart.push(item);
                 
                 
@@ -111,8 +109,8 @@ function renderCart(cart, lense) {
     }
     panier.innerHTML += `
     <div class ="row col-3">
-    <div class ="col-3 case cell"> Prix Total </div>
-    <div class ="col-3 case cell"> ${totalPrice/100} </div>
+    <div class ="col-3 case cell price"> Prix Total </div>
+    <div class ="col-3 case cell price"> ${totalPrice/100} € </div>
     
     </div>
     </div>
@@ -134,7 +132,6 @@ function renderCart(cart, lense) {
     }
     finalPrice.push(infosPrice);
     localStorage.setItem('finalPrice', JSON.stringify(finalPrice));
-    console.log(finalPrice)
 }
 
 
@@ -151,7 +148,6 @@ function getArrayId () {
         arrayId.push(storedItems.id)
         
     });
-    console.log(arrayId)
     return arrayId;
     
 }
@@ -190,7 +186,6 @@ form.addEventListener("submit", async  (e) => {
         try {
             const response = await fetch("http://localhost:3000/api/cameras/order",options);
             const data = await response.json();
-            console.log(data)
             
             
             
@@ -212,7 +207,6 @@ form.addEventListener("submit", async  (e) => {
             }
             customerInfos.push(infosPrice);
             localStorage.setItem('customerInfos', JSON.stringify(customerInfos));
-            console.log(customerInfos)
             
             
             //redirection vers confirmation.html
