@@ -15,15 +15,15 @@
         
         target.appendChild(confirmation);
     }
-
-
     
-
-try{
-    renderConfirmation();
-}
-catch{
-    alert("Impossible de récupérer vos informations de commande !");
-}
-localStorage.clear('cart');
-displayNbProduct();
+    
+    
+    
+    try{
+        renderConfirmation();
+    }
+    catch{
+        alert("Impossible de récupérer vos informations de commande !");
+    }
+    localStorage.clear('cart');
+    displayNbProduct();

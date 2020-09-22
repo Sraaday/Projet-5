@@ -19,10 +19,8 @@ function renderProduct(productName, productImg, productPrice, productDescription
 
 // Recup product Id
 const urlId = document.location.href;
-console.log(urlId);
 const indexId = urlId.search('=');
 const productUrlId = urlId.slice (indexId + 1, urlId.length);
-console.log(productUrlId);
 
 const id = (new URL(document.location)).searchParams.get('id');
 
@@ -42,7 +40,6 @@ const displayProducts = async (id) => {
 
 displayProducts(productUrlId);
 
-
 // Options lentilles
 function createOptions (lenses) {
   let Options = '' ;
@@ -57,20 +54,17 @@ function createOptions (lenses) {
 function AddCart () {
   const selecteur = document.getElementById('Lentilles');
   const LenseId = selecteur.options[selecteur.selectedIndex].value;
-  console.log(LenseId);
   const newItem = {
     id : productUrlId, 
     lense : LenseId
   }
   let cart = JSON.parse(localStorage.getItem('cart'));
-  console.log(cart)
   if (cart===null) {
     cart = [] 
     
   }
   
   cart.push(newItem);
-  console.log(cart)
   localStorage.setItem('cart', JSON.stringify(cart));
   displayNbProduct();
   

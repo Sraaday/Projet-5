@@ -1,5 +1,3 @@
-
-
 // Affichage nb produits panier
 function displayNbProduct() {
     const items = JSON.parse(localStorage.getItem('cart'));
