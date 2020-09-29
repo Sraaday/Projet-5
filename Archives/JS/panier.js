@@ -10,14 +10,12 @@ const getOneCam = async (url, id) => {
 // Affichage nb produits panier
 function displayNbProduct() {
     let NbItems = JSON.parse(localStorage.getItem('cart')).length;
-    console.log(NbItems)
     
 }
 
 // Recupération des infos en local storage
 function infosCart() {
     let storedItems = JSON.parse(localStorage.getItem('cart'));
-    console.log(storedItems)
 }
 
 infosCart();
@@ -50,12 +48,9 @@ const displaycart = async () => {
     `;
     let totalPrice = 0;
     for (const item of storedItems) {
-        console.log(item)
         let id = item.id
-        console.log(id)
         
-        const product = await getOneCam(url,id);
-        console.log(product)       
+        const product = await getOneCam(url,id);    
         
         panier.innerHTML += `
         <div class ="col-9 col-lg-9 col-sm-9 col-xs-9 col-md-9 case">
