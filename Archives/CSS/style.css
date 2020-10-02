@@ -36,6 +36,9 @@ body {
     justify-content: space-around;
     font-size: large;
     color: blanchedalmond;
+    margin-left: 10px;
+    margin-right: 5px;
+    font-size: medium;
 }
 
 .display-article h1
@@ -155,6 +158,10 @@ input
         justify-content: space-around;
         font-size: small;
         color: blanchedalmond;
+    }
+
+    .display-article h1 {
+        font-size: medium;
     }
     
     .case {

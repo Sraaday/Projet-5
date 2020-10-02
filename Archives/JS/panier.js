@@ -66,9 +66,9 @@ const displaycart = async () => {
     }
     
     panier.innerHTML += `
-    <div class ="row col-3">
-    <div class ="col-3 case cell price"> Prix Total </div>
-    <div class ="col-3 case cell price"> ${totalPrice/100} € </div>
+    <div class ="row col-lg-3 col-sm-3 col-xs-3 col-md-3">
+    <div class ="col-3 col-lg-3 col-sm-3 col-xs-3 col-md-3 case cell"> Prix Total </div>
+    <div class ="col-3 col-lg-3 col-sm-3 col-xs-3 col-md-3 case cell"> ${totalPrice/100} € </div>
     
     </div>
     </div>
