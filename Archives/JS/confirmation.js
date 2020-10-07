@@ -1,7 +1,5 @@
     const queryString = window.location.search;
-    console.log(queryString)
     const urlParams = new URLSearchParams(queryString);
-    console.log(urlParams)
    
     function renderConfirmation() {
         // Recupération des infos de commande en local storage
