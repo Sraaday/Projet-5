@@ -1,5 +1,5 @@
 const uuid = require('uuid/v1');
-const Furniture = require('../models/Furniture');
+const Furniture = require('./models/Furniture');
 
 exports.getAllFurniture = (req, res, next) => {
   Furniture.find().then(
